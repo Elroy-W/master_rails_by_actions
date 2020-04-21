@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'sorcery'
-
+gem 'ancestry'
 
 
 # Reduces boot times through caching; required in config/boot.rb
