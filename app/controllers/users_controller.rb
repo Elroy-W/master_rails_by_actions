@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   
     def create
       @user = User.new(params.require(:user)
-        .permit(:email, :password, :password_confirmation))
+      .permit(:email, :password, :password_confirmation))
   
       if @user.save
         flash[:notice] = "Sign  Successfully, please log in"
