@@ -1,2 +1,37 @@
-<h1>Admin::Categories#index</h1>
-<p>Find me in app/views/admin/categories/index.html.erb</p>
+<div>
+    <div class="pull-right">
+      <%= link_to "New Index", new_admin_category_path, class: "btn btn-primary" %>
+    </div>
+  
+    <h1>
+      
+        Total Index:  <%=  @categories.total_entries %>
+    
+    </h1>
+  </div>
+  
+  <div>
+    <table class="table table-striped">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Weight</th>
+        <th></th>
+      </tr>
+  
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.id %></td>
+          <td><%= category.title %></td>
+          <td><%= category.weight %></td>
+          <td align="right">
+            <%= link_to "Edit", edit_admin_category_path(category) %> 
+            <%= link_to "Delete", admin_category_path(category), method: :delete, 'data-confirm': "Are you sure to delete" %>
+          
+          </td>
+        </tr>
+      <% end -%>
+    </table>
+  
+    <%= will_paginate @categories %>
+  </div>
