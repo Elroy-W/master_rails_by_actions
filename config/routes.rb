@@ -10,6 +10,7 @@ namespace :admin do
    root 'sessions#new'
    resources :sessions
    resources :categories
+   resources :products
   end
 
 end

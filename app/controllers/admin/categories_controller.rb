@@ -1,5 +1,3 @@
-
-
 class Admin::CategoriesController < Admin::BaseController
 
   before_action :find_root_categories, only: [:new, :create, :edit, :update]

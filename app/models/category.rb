@@ -1,8 +1,9 @@
 class Category < ApplicationRecord
 
     validates :title, presence: {message: "Title can not be blank"}
+    validates :title, uniqueness: {message: "Title can not be repeated"}
 
-    has_ancestry
+    has_ancestry orphan_strategy: :destroy
     
     has_many :products, dependent: :destroy
 

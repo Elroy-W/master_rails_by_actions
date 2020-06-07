@@ -4,8 +4,11 @@
     </div>
   
     <h1>
-      
+      <% if @category %>
+      Total Index:  <%= @category.title %>(<%=  @categories.total_entries %>)
+    <% else %>
         Total Index:  <%=  @categories.total_entries %>
+    <% end -%>
     
     </h1>
   </div>
@@ -27,7 +30,9 @@
           <td align="right">
             <%= link_to "Edit", edit_admin_category_path(category) %> 
             <%= link_to "Delete", admin_category_path(category), method: :delete, 'data-confirm': "Are you sure to delete" %>
-          
+            <% if category.root? %>
+            <%= link_to "Subindexes", admin_categories_path(id: category) %>
+          <% end -%>
           </td>
         </tr>
       <% end -%>
