@@ -18,6 +18,7 @@ validates :description,presence: {message:"The description cannot be blank!"}
 
 
 belongs_to :category
+has_many :product_images
 
 before_create :set_default_attrs
 
