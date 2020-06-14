@@ -21,6 +21,10 @@ belongs_to :category
 
 before_create :set_default_attrs
 
+module Status
+    On = 'on'
+    Off = 'off'
+end
 private
 def set_default_attrs
     self.uuid =  RandomCode.generate_product_uuid
