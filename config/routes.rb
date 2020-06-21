@@ -11,7 +11,7 @@ namespace :admin do
    resources :sessions
    resources :categories
    resources :products do
-    resources :product_images, only: [:index, :create, :destroy]
+    resources :product_images, only: [:index, :create, :destroy, :update]
   end
   end
 

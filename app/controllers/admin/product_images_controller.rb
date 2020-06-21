@@ -25,6 +25,17 @@ class Admin::ProductImagesController < Admin::BaseController
       redirect_back(fallback_location:"/")
     end
   
+    def update
+        @product_image = @product.product_images.find(params[:id])
+        @product_image.weight=params[:weight]
+        if @product_image.save
+            flash[:notice] = "Save Successfully"
+          else
+            flash[:notice] = "Save Failed"
+          end
+      
+          redirect_back(fallback_location:"/")
+    end
 
   
     private
