@@ -51,7 +51,8 @@ class Admin::CategoriesController < Admin::BaseController
       redirect_to admin_categories_path
     else
       flash[:notice] = "Delete failed"
-      redirect_to :back
+  
+      redirect_back(fallback_location:"/")
     end
   end
 
