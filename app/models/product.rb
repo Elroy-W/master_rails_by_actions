@@ -20,8 +20,14 @@ validates :description,presence: {message:"The description cannot be blank!"}
 belongs_to :category
 has_many :product_images, -> { order(weight: 'desc') },
     dependent: :destroy
+has_one :main_product_image,-> { order(weight: 'desc') },
+    class_name: :ProductImage
+   
 
 before_create :set_default_attrs
+
+scope :onshelf, -> { where(status: Status::On) }
+# Ex:- scope :active, -> {where(:active => true)}
 
 module Status
     On = 'on'
